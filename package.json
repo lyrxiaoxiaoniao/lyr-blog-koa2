@@ -13,9 +13,14 @@
     "debug": "^4.1.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-jwt": "^3.5.1",
+    "koa-mysql-session": "^0.0.2",
     "koa-router": "^7.4.0",
-    "lodash": "^4.17.11"
+    "koa-session-minimal": "^3.0.4",
+    "lodash": "^4.17.11",
+    "mysql": "^2.16.0"
   }
 }
