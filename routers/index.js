@@ -9,8 +9,9 @@ console.log(controllers);
 router.get('/demo', controllers.demo)
 router.get('/test', controllers.test)
 router.get('/detail', controllers.detail)
-router.get('/user/login', controllers.user.login)
-router.post('/user/register', controllers.user.register)
-router.get('/user/userinfo', controllers.user.userinfo)
+router.post('/user/login', controllers.user.loginPOST)
+router.post('/user/register', controllers.user.registerPOST)
+router.get('/user/userinfo', controllers.user.userinfoGET)
+router.get('/activity/msg', controllers.activity.msg)
 
 module.exports = router
