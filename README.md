@@ -1,5 +1,7 @@
 ## 开始使用
 
+> 根据小程序后台模板修改
+
 #### 安装依赖
 
 ```bash
@@ -20,19 +22,21 @@ npm run start
 ## 项目结构
 
 ```
-koa-weapp-demo
-├── README.md
-├── app.js
-├── controllers
-│   ├── index.js
+lyr-blog-koa2
+├── README.md                     
+├── app.js                       // 入口文件
+├── controllers                  // 控制器
+│   ├── index.js                 // 控制器输出文件
 │   ├── demo.js
-├── middlewares
+├── middlewares                  // 中间件
 │   └── response.js
-├── config.js
+├── mysql                        // mysql 辅助
+├── record                       // 文档
+├── config.js                    // 配置
+└── routes                       // 路由
+    └── index.js
 ├── package.json
 ├── nodemon.json
-└── routes
-    └── index.js
 ```
 `app.js` 是 Demo 的主入口文件，Demo 使用 Koa 框架，在 `app.js` 创建一个 Koa 实例并响应请求。
 
