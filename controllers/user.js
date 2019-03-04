@@ -52,12 +52,5 @@ module.exports = {
                 user_id: res.insertId
             }
         }
-    },
-    // 获取用户信息
-    userinfoGET: async ctx => {
-        ctx.state.data = {
-            name: 'xiaoliu',
-            id: '1231'
-        }
     }
 }
