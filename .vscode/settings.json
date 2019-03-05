@@ -2,7 +2,7 @@
   "workbench.iconTheme": "vscode-icons",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
   "prettier.singleQuote": true,
-  // "prettier.semi": false,
+  "prettier.semi": true,
   "editor.tabSize": 4,
   "px-to-rem.px-per-rem": 37.5,
   "javascript.updateImportsOnFileMove.enabled": "always",

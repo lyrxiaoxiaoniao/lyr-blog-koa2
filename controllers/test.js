@@ -1,4 +1,4 @@
-const Models = require('../db/models');
+const Models = require('../db/models')
 
 module.exports = async ctx => {
     let res = await Models.Articles.findAndCountAll({
