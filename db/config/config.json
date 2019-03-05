@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "12345",
-    "database": "database_development",
+    "database": "blog_development",
     "host": "localhost",
     "dialect": "mysql",
     "pool": {
@@ -12,16 +12,16 @@
     },
     "timezone": "+08:00",
     "define": {
-      "charset": "utf8",
+      "charset": "utf8mb4",
       "dialectOptions": {
-        "collate": "utf8_general_ci"
+        "collate": "utf8mb4_bin"
       }
     }
   },
   "test": {
     "username": "root",
     "password": "12345",
-    "database": "database_test",
+    "database": "blog_test",
     "host": "localhost",
     "dialect": "mysql",
     "pool": {
@@ -31,16 +31,16 @@
     },
     "timezone": "+08:00",
     "define": {
-      "charset": "utf8",
+      "charset": "utf8mb4",
       "dialectOptions": {
-        "collate": "utf8_general_ci"
+        "collate": "utf8mb4_bin"
       }
     }
   },
   "production": {
     "username": "root",
     "password": "12345",
-    "database": "database_production",
+    "database": "blog_production",
     "host": "localhost",
     "dialect": "mysql",
     "pool": {
@@ -50,9 +50,9 @@
     },
     "timezone": "+08:00",
     "define": {
-      "charset": "utf8",
+      "charset": "utf8mb4",
       "dialectOptions": {
-        "collate": "utf8_general_ci"
+        "collate": "utf8mb4_bin"
       }
     }
   }
