@@ -170,11 +170,13 @@ models/role.js如下：
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Role = sequelize.define('Role', {
-    roleName: DataTypes.STRING
+    roleName: DataTypes.STRING,
   }, {});
   Role.associate = function(models) {
     // associations can be defined here
-    Role.hasMany(models.User)
+    Role.hasMany(models.User, {
+      foreignKey: "roleId"
+    })
   };
   return Role;
 };
@@ -188,7 +190,17 @@ module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    roleId: { // name of the key we're adding 
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Roles', // name of Target model
+            key: 'id', // key in Target model that we're referencing
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+    },
   }, {});
   User.associate = function(models) {
     // associations can be defined here
