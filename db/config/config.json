@@ -1,0 +1,59 @@
+{
+  "development": {
+    "username": "root",
+    "password": "12345",
+    "database": "blog_development",
+    "host": "localhost",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 10000
+    },
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8mb4",
+      "dialectOptions": {
+        "collate": "utf8mb4_bin"
+      }
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": "12345",
+    "database": "blog_test",
+    "host": "localhost",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 10000
+    },
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8mb4",
+      "dialectOptions": {
+        "collate": "utf8mb4_bin"
+      }
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": "12345",
+    "database": "blog_production",
+    "host": "localhost",
+    "dialect": "mysql",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 10000
+    },
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8mb4",
+      "dialectOptions": {
+        "collate": "utf8mb4_bin"
+      }
+    }
+  }
+}

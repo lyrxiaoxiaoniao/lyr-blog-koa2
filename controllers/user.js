@@ -16,6 +16,21 @@ module.exports = {
         const pass = crypto.createHash('md5').update(password).digest('hex')
         const res = await userModel.findUserData(userName)
         if (res.length) {
+            // 三种方法设置过期时间 为 1小时过期
+            // jwt.sign({
+            //     exp: Math.floor(Date.now() / 1000) + (60 * 60),
+            //     data: 'foobar'
+            // }, 'secret');
+
+            // jwt.sign({
+            //     data: 'foobar'
+            // }, 'secret', { expiresIn: 60 * 60 });
+            
+            // //or even better:
+            
+            // jwt.sign({
+            //     data: 'foobar'
+            // }, 'secret', { expiresIn: '1h' });
             const token = jwt.sign({
                 name: userName,
                 user_id: res.id
@@ -51,13 +66,6 @@ module.exports = {
                 msg: '注册成功',
                 user_id: res.insertId
             }
-        }
-    },
-    // 获取用户信息
-    userinfoGET: async ctx => {
-        ctx.state.data = {
-            name: 'xiaoliu',
-            id: '1231'
         }
     }
 }

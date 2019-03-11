@@ -5,7 +5,7 @@ module.exports = {
         host: "localhost",
         port: 3306,
         user: "root",
-        db: "cAuth",
+        db: "blog_development",
         pass: "12345",
         char: "utf8mb4",
     },

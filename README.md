@@ -25,6 +25,11 @@ npm run start
 lyr-blog-koa2
 ├── README.md                     
 ├── app.js                       // 入口文件
+├── db                           // sequelize
+│   ├── config                   // 包含配置文件，它告诉CLI如何连接数据库
+│   ├── models                   // 包含您的项目的所有模型
+│   ├── migrations               // 包含所有迁移文件
+│   ├── seeders                  // 包含所有种子文件
 ├── controllers                  // 控制器
 │   ├── index.js                 // 控制器输出文件
 │   ├── demo.js
@@ -37,6 +42,7 @@ lyr-blog-koa2
     └── index.js
 ├── package.json
 ├── nodemon.json
+├── .sequelizerc                // 如果不配置.sequelizerc 的话，sequelize init 初始化的文件夹会出现在项目目录下面，如果配置了.sequelizerc 就可以指定到相应的目录
 ```
 `app.js` 是 Demo 的主入口文件，Demo 使用 Koa 框架，在 `app.js` 创建一个 Koa 实例并响应请求。
 
