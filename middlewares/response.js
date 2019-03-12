@@ -14,17 +14,22 @@ module.exports = async (ctx, next) => {
         // Koa2中可以通过ctx.state配置全局变量。ctx.state配置的全局变量我们不仅可以在其他的路由页面使用，我们还可以在全局模板使用.
         ctx.body = ctx.body ? ctx.body : {
             code: ctx.state.code !== undefined ? ctx.state.code : 0,
-            data: ctx.state.data !== undefined ? ctx.state.data : {}
+            success: ctx.state.success !== undefined ? ctx.state.success : true,
+            data: ctx.state.data !== undefined ? ctx.state.data : {},
+            
         }
     } catch (e) {
         debug('Catch Error: %o', e)
         // 设置状态码为 200 - 服务端错误
         ctx.status = 200
+        // ctx.status = e.status
 
         // 输出详细的错误信息
         ctx.body = {
             code: -1,
-            error: e && e.message ? e.message : e.toString()
+            success: false,
+            error: e && e.message ? e.message : e.toString(),
+            message: e && e.message ? e.message : e.toString()
         }
     }
 }
