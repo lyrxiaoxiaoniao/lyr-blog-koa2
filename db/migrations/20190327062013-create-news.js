@@ -37,7 +37,7 @@ module.exports = {
         comment: '新闻时间'
       },
       rank: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         comment: '置顶'
       },
       createdAt: {
