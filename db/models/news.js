@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       comment: '新闻时间'
     },
+    rank: {
+      type: DataTypes.INTEGER,
+      comment: '置顶'
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE
