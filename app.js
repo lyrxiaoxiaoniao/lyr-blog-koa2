@@ -8,11 +8,11 @@ const middlewares = require('./middlewares/index.js')
 middlewares(app)
 // 验证token, unless--排除某个路径不做token鉴权
 // token 在Headers中的名为Authorization的键值对中
-app.use(koajwt({
-    secret: config.tokenSecret
-}).unless({
-    path: [/\/api\/user\/register/, /\/api\/user\/login/]
-}));
+// app.use(koajwt({
+//     secret: config.tokenSecret
+// }).unless({
+//     path: [/\/api\/user\/register/, /\/api\/user\/login/]
+// }));
 // 引入路由分发
 const router = require('./routers')
 app.use(router.routes())

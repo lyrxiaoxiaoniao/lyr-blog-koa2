@@ -676,6 +676,11 @@ koa-unless@1.0.7:
   version "1.0.7"
   resolved "http://registry.npm.taobao.org/koa-unless/download/koa-unless-1.0.7.tgz#b9df375e2b4da3043918d48622520c2c0b79f032"
 
+koa2-connect-history-api-fallback@^0.1.1:
+  version "0.1.1"
+  resolved "http://registry.npm.taobao.org/koa2-connect-history-api-fallback/download/koa2-connect-history-api-fallback-0.1.1.tgz#0382583391bd9dd00ce268ae50d0f88ca43184df"
+  integrity sha1-A4JYM5G9ndAM4miuUND4jKQxhN8=
+
 koa@^2.6.2:
   version "2.6.2"
   resolved "http://registry.npm.taobao.org/koa/download/koa-2.6.2.tgz#57ba4d049b0a99cae0d594e6144e2931949a7ce1"
