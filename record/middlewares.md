@@ -67,3 +67,8 @@ app.listen(config.port, () => debug(`listening on port ${config.port}`))
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) 使用 jsonwebtoken 的 sign() 方法来生成 token
 
 - [koa-jwt](https://github.com/koajs/jwt)该中间件针对 Koa 对 jsonwebtoken 进行了封装，通过 koa-jwt 中间件来进行token验证
+
+
+### 使用`koa-body`代替 `koa-bodyparser` 和 `koa-multer`
+
+> 详细配置[koa-body](https://github.com/dlau/koa-body)
