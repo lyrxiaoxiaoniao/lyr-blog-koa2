@@ -26,11 +26,11 @@ module.exports = app => {
       encoding: 'gzip',
       multipart: true, // 支持文件上传
       formidable: {
+        multiples: true,
         uploadDir: path.join(__dirname, '../public/upload/'), // 设置文件上传目录
         keepExtensions: true, // 保持文件的后缀
         maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小
         onFileBegin: (name, file) => {
-          console.log(file, '2222222222222')
           // 文件上传前的设置
           // 生成对应时间的文件夹
           const dirName = getUploadDirName();
@@ -42,10 +42,7 @@ module.exports = app => {
           checkDirExist(fp);
           const fileName = getUploadFileName(ext);
           file.path = `${fp}/${fileName}`;
-          app.context.uploadpath = app.context.uploadpath
-            ? app.context.uploadpath
-            : {};
-          app.context.uploadpath[name] = `${dirName}/${fileName}`;
+          file.outPath = `/upload/${dirName}/${fileName}`;
         }
       }
     })

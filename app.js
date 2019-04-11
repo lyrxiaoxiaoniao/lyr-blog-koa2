@@ -15,6 +15,6 @@ middlewares(app);
 // }));
 // 引入路由分发
 const router = require('./routers');
-app.use(router.routes()).use(router.allowedMethods());
+app.use(router.routes());
 
 app.listen(config.port, () => debug(`listening on port ${config.port}`));
