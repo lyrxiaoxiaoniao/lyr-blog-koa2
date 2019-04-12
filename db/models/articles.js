@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Articles = sequelize.define('Articles', {
+  const Article = sequelize.define('Article', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "Users",
+        model: "User",
         key: 'id'
       }
     },
@@ -31,13 +31,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    tableName: 'articles'
+    tableName: 'article'
   });
-  Articles.associate = function(models) {
+  Article.associate = function(models) {
     // associations can be defined here
-    Articles.belongsTo(models.Users, {
+    Article.belongsTo(models.User, {
       foreignKey: 'user_id'
     })
+    Article.belongsToMany(models.Tag, {
+      through: models.TagtoArticle,
+      foreignKey: 'article_id'
+    });
   };
-  return Articles;
+  return Article;
 };

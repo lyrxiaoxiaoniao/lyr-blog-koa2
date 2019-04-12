@@ -1,11 +1,11 @@
 const Models = require('../db/models')
 
 module.exports = async ctx => {
-    let res = await Models.Articles.findAndCountAll({
+    let res = await Models.Article.findAndCountAll({
         limit: 5,
         offset: 0,
         include: {
-            model: Models.Users
+            model: Models.User
         }
     })
     ctx.state.data = {

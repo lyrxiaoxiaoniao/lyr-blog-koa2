@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('News', {
+    return queryInterface.createTable('New', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Categorys",
+          model: "Category",
           key: 'id'
         }
       },
@@ -49,17 +49,17 @@ module.exports = {
         type: Sequelize.DATE
       }
     },{
-      tableName: 'news',
+      tableName: 'new',
       charset: 'utf8mb4',
       collate: 'utf8mb4_bin'
     }).then(() => {
-      queryInterface.addIndex('news', {
+      queryInterface.addIndex('new', {
         name: 'category_id',
         fields: ['category_id']
       });
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('News');
+    return queryInterface.dropTable('New');
   }
 };

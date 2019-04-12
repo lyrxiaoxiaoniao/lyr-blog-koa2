@@ -13,7 +13,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Users', [{
+    return queryInterface.bulkInsert('User', [{
         username: 'admin',
         password: crypto.createHash('md5').update('12345').digest('hex'),
         createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -26,7 +26,7 @@ module.exports = {
         updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
       }
     ], {}).then(data => {
-      return queryInterface.bulkInsert('Articles', [{
+      return queryInterface.bulkInsert('Article', [{
           user_id: 1,
           title: 'admin-articles',
           content: 'admin-articles-content',
@@ -55,7 +55,62 @@ module.exports = {
           updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
         }
       ])
-    });
+    })
+    .then(data => {
+        return queryInterface.bulkInsert(
+          'Tag',
+          [
+            {
+              label: 'JavaScript',
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            },
+            {
+              label: 'TypeScript',
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            },
+            {
+              label: 'Koa2',
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            }
+          ],
+          {}
+        );
+      })
+      .then(data => {
+        return queryInterface.bulkInsert(
+          'TagtoArticle',
+          [
+            {
+              tag_id: 1,
+              article_id: 1,
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            },
+            {
+              tag_id: 1,
+              article_id: 2,
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            },
+            {
+              tag_id: 2,
+              article_id: 3,
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            },
+            {
+              tag_id: 3,
+              article_id: 3,
+              createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+              updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
+            }
+          ],
+          {}
+        );
+      });
   },
 
   down: (queryInterface, Sequelize) => {
@@ -66,6 +121,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-    // return queryInterface.bulkDelete('Users', null, {});
+    // return queryInterface.bulkDelete('User', null, {});
   }
 };

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Categorys = sequelize.define('Categorys', {
+  const Category = sequelize.define('Category', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    tableName: 'categotys'
+    tableName: 'categoty'
   });
-  Categorys.associate = function (models) {
+  Category.associate = function (models) {
     // associations can be defined here
     // hasMany : 一对多的关系，一个user对应多个article
-    Categorys.hasMany(models.News, {
+    Category.hasMany(models.New, {
       foreignKey: 'category_id'
     })
   };
-  return Categorys;
+  return Category;
 };

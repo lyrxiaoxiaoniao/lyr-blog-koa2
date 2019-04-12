@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const News = sequelize.define('News', {
+  const New = sequelize.define('New', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "Categorys",
+        model: "Category",
         key: 'id'
       }
     },
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       comment: '预览图'
     },
-    newsDate: {
+    newDate: {
       type: DataTypes.DATE,
       comment: '新闻时间'
     },
@@ -48,13 +48,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    tableName: 'news'
+    tableName: 'new'
   });
-  News.associate = function(models) {
+  New.associate = function(models) {
     // associations can be defined here
-    News.belongsTo(models.Categorys, {
+    New.belongsTo(models.Category, {
       foreignKey: 'category_id'
     })
   };
-  return News;
+  return New;
 };

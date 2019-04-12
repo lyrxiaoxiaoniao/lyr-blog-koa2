@@ -12,7 +12,7 @@ module.exports = {
       .createHash('md5')
       .update(password)
       .digest('hex');
-    const res = await Models.Users.findOne({
+    const res = await Models.User.findOne({
       where: {
         username
       }
@@ -69,7 +69,7 @@ module.exports = {
       .createHash('md5')
       .update(password)
       .digest('hex');
-    let res = await Models.Users.findOrCreate({
+    let res = await Models.User.findOrCreate({
       where: {
         username
       },
