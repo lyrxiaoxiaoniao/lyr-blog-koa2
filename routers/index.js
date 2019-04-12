@@ -5,8 +5,8 @@ const router = require('koa-router')({
   prefix: '/api'
 });
 const controllers = require('../controllers');
-// console.log(controllers)
-router.get('/demo', controllers.demo);
+console.log(controllers)
+router.get('/tag', controllers.tag);
 router.get('/test', controllers.test);
 router.get('/detail', controllers.detail);
 router.post('/upload', controllers.upload);
