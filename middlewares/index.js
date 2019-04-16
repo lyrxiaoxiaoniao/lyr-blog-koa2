@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 // 使用koa-body代替 koa-bodyparser 与 koa-multer
 const {
-  checkDirExist,
+  checkAndMkdirsSync,
   getUploadDirName,
   getUploadFileExt,
   getUploadFileName
@@ -39,7 +39,7 @@ module.exports = app => {
           // 获文件后缀
           const ext = getUploadFileExt(file.name);
           // 获取文件名称
-          checkDirExist(fp);
+          checkAndMkdirsSync(fp);
           const fileName = getUploadFileName(ext);
           file.path = `${fp}/${fileName}`;
           file.outPath = `/upload/${dirName}/${fileName}`;
