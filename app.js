@@ -11,7 +11,7 @@ middlewares(app);
 // app.use(koajwt({
 //     secret: config.tokenSecret
 // }).unless({
-//     path: [/\/api\/user\/register/, /\/api\/user\/login/]
+//     path: [/\/api\/user\/register/, /\/api\/user\/login/, /\/api\/upload/]
 // }));
 // 引入路由分发
 const router = require('./routers');

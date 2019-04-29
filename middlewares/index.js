@@ -21,9 +21,9 @@ module.exports = app => {
   app.use(historyApiFallback({ whiteList: ['/api'] }));
   app.use(staticFiles(path.resolve(__dirname, '../public')));
   // 解析请求体
+  // app.use(bodyParser());
   app.use(
     koaBody({
-      encoding: 'gzip',
       multipart: true, // 支持文件上传
       formidable: {
         multiples: true,
@@ -47,7 +47,6 @@ module.exports = app => {
       }
     })
   );
-  // app.use(bodyParser());
   // 使用响应处理中间件
   app.use(responseMiddleware);
 };
