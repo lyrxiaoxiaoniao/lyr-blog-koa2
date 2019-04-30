@@ -46,8 +46,10 @@ module.exports = {
         );
         ctx.state.data = {
           message: '登录成功',
-          data: res,
-          token
+          data: {
+            username: res.username,
+            token
+          }
         };
       } else {
         ctx.state = {
@@ -87,7 +89,7 @@ module.exports = {
         code: '1000'
       };
     }
-  },
+  }
   // // 用户登录
   // loginPOST: async ctx => {
   //   const { username, password } = ctx.request.body;

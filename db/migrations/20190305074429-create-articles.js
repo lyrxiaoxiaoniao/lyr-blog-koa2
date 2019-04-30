@@ -19,6 +19,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING(50)
       },
+      head_url: {
+        type: Sequelize.STRING(1000),
+        allowNull: false
+      },
       content: {
         type: Sequelize.STRING(1000),
         allowNull: false

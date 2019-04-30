@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING(50)
     },
+    head_url: {
+      type: DataTypes.STRING(1000),
+      allowNull: false
+    },
     content: {
       type: DataTypes.STRING(1000),
       allowNull: false

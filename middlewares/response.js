@@ -21,15 +21,24 @@ module.exports = async (ctx, next) => {
     } catch (e) {
         debug('Catch Error: %o', e)
         // 设置状态码为 200 - 服务端错误
-        ctx.status = 200
         // ctx.status = e.status
-
-        // 输出详细的错误信息
-        ctx.body = {
-            code: -1,
-            success: false,
-            error: e && e.message ? e.message : e.toString(),
-            message: e && e.message ? e.message : e.toString()
+        if (401 == e.status) {
+            ctx.status = 200;
+            ctx.body = {
+                code: -401,
+                success: true,
+                error: e && e.message ? e.message : e.toString(),
+                message: '登录失效！'
+            }
+        }else{
+            ctx.status = 200
+            // 输出详细的错误信息
+            ctx.body = {
+                code: -1,
+                success: false,
+                error: e && e.message ? e.message : e.toString(),
+                message: e && e.message ? e.message : e.toString()
+            }
         }
     }
 }

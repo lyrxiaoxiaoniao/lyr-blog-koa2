@@ -13,15 +13,16 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    // 密码123456 ==== e10adc3949ba59abbe56e057f20f883e  
     return queryInterface.bulkInsert('User', [{
         username: 'admin',
-        password: crypto.createHash('md5').update('12345').digest('hex'),
+        password: crypto.createHash('md5').update('e10adc3949ba59abbe56e057f20f883e').digest('hex'),
         createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
         updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
       },
       {
         username: 'test',
-        password: crypto.createHash('md5').update('12345').digest('hex'),
+        password: crypto.createHash('md5').update('e10adc3949ba59abbe56e057f20f883e').digest('hex'),
         createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
         updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
       }
@@ -29,6 +30,7 @@ module.exports = {
       return queryInterface.bulkInsert('Article', [{
           user_id: 1,
           title: 'admin-articles',
+          head_url: 'http://placehold.it/300X150',
           content: 'admin-articles-content',
           createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
           updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
@@ -36,6 +38,7 @@ module.exports = {
         {
           user_id: 1,
           title: 'admin-articles111',
+          head_url: 'http://placehold.it/300X150',
           content: 'admin-articles-content1111',
           createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
           updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
@@ -43,6 +46,7 @@ module.exports = {
         {
           user_id: 1,
           title: 'admin-articles22222',
+          head_url: 'http://placehold.it/300X150',
           content: 'admin-articles-content22222',
           createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
           updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
@@ -50,6 +54,7 @@ module.exports = {
         {
           user_id: 2,
           title: 'test-articles',
+          head_url: 'http://placehold.it/300X150',
           content: 'test-articles-content',
           createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
           updatedAt: moment().format('YYYY-MM-DD HH:mm:ss')
