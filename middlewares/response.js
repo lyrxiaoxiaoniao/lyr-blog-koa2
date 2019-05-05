@@ -25,7 +25,7 @@ module.exports = async (ctx, next) => {
         if (401 == e.status) {
             ctx.status = 200;
             ctx.body = {
-                code: -401,
+                code: 401,
                 success: true,
                 error: e && e.message ? e.message : e.toString(),
                 message: '登录失效！'

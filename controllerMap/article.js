@@ -6,11 +6,10 @@ const articleListGET = async ctx => {
     offset: 0,
     include: [
       {
-        model: Models.Tag
+        model: Models.User
       }
     ]
   });
-  console.log(res, '1111111');
   ctx.state.data = {
     count: res.count,
     data: res.rows

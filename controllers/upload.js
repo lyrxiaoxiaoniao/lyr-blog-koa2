@@ -8,10 +8,9 @@ module.exports = async (ctx, next) => {
       return `${ctx.host}${v.outPath}`
     });
   } else {
-    data.push(`${ctx.host}${files.outPath}`)
+    data.push(`http://${ctx.host}${files.outPath}`)
   }
   ctx.state.data = {
-    data: ctx.host,
     files: data
   };
 };
