@@ -50,8 +50,8 @@ const getUploadDirName = () => {
 /**
  * @description 获取文件后缀
  */
-const getUploadFileExt = name => {
-  let ext = name.split('.');
+const getUploadFileExt = fileType => {
+  let ext = fileType.split('/');
   return ext[ext.length - 1];
 };
 

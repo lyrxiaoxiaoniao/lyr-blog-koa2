@@ -37,7 +37,7 @@ module.exports = app => {
           // 文件上传的位置
           const fp = path.join(__dirname, `../public/upload/${dirName}`);
           // 获文件后缀
-          const ext = getUploadFileExt(file.name);
+          const ext = getUploadFileExt(file.type);
           // 获取文件名称
           checkAndMkdirsSync(fp);
           const fileName = getUploadFileName(ext);

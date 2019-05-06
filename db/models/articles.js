@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     content: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.TEXT('long'),
       allowNull: false
     },
     createdAt: {

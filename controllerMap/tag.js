@@ -41,7 +41,6 @@ const tagDELETE = async ctx => {
   const res = await Models.Tag.destroy({
     where: { id }
   });
-  console.log(res, 'tagDeletePOST');
   if (res) {
     ctx.state.data = {
       message: '删除成功！'
