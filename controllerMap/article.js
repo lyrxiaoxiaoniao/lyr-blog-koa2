@@ -7,12 +7,16 @@ const articleListGET = async ctx => {
     offset: 0,
     include: [
       {
-        model: Models.User
+        model: Models.User,
+        attributes: ['username']
       },
       {
-        model: Models.Tag
+        model: Models.Tag,
+        attributes: ['label'],
+        through: {attributes: []}
       }
-    ]
+    ],
+    order:[['updatedAt', 'DESC']]
   });
   ctx.state.data = {
     count: res.count,
@@ -90,6 +94,8 @@ const articleFindGET = async ctx => {
   }
 };
 module.exports = {
+  'GET /pc/article/list': articleListGET,
+  'GET /pc/article/find': articleFindGET,
   'GET /article/list': articleListGET,
   'GET /article/find': articleFindGET,
   'POST /article/add': articleAddPOST,

@@ -24,11 +24,13 @@ middlewares(app);
 //     }
 //   });
 // });
+
+
 app.use(
   koajwt({
     secret: config.tokenSecret
   }).unless({
-    path: [/\/api\/user\/register/, /\/api\/user\/login/, /\/api\/upload/]
+    path: [/\/api\/user\/register/, /\/api\/user\/login/, /\/api\/upload/, /\/api\/pc\/*/]
   })
 );
 // 引入路由分发
