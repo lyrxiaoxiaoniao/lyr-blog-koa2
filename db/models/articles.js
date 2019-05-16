@@ -44,7 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     })
     Article.belongsToMany(models.Tag, {
       through: models.TagtoArticle,
-      foreignKey: 'article_id'
+      foreignKey: 'article_id',
+      constraints: false
     });
   };
   return Article;

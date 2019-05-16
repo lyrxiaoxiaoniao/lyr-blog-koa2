@@ -13,10 +13,10 @@ const articleListGET = async ctx => {
       {
         model: Models.Tag,
         attributes: ['label'],
-        through: {attributes: []}
+        through: { attributes: [] }
       }
     ],
-    order:[['updatedAt', 'DESC']]
+    order: [['updatedAt', 'DESC']]
   });
   ctx.state.data = {
     count: res.count,
@@ -27,10 +27,15 @@ const articleListGET = async ctx => {
 const articleAddPOST = async ctx => {
   const userinfo = getToken(ctx);
   const resdata = ctx.request.body;
-  const res = await Models.Article.create({
+  const newData = {
     ...resdata,
     user_id: userinfo.user_id
+  };
+  const Arc = await Models.Article.create(newData);
+  const tags = await Models.Tag.findAll({
+    where: { id: resdata.tagIds }
   });
+  await Arc.addTag(tags);
   ctx.state.data = {
     message: '新增成功！'
   };
@@ -38,16 +43,16 @@ const articleAddPOST = async ctx => {
 // 更新文章
 const articleUpdatePOST = async ctx => {
   const resdata = ctx.request.body;
+  const resone = await Models.Article.findOne({
+    where: { id: resdata.id }
+  });
+  const tags = await Models.Tag.findAll({
+    where: { id: resdata.tagIds }
+  });
+  await resone.setTags(tags);
   const res = await Models.Article.update(
-    {
-      // title: resdata.title,
-      // head_url: resdata.head_url,
-      // content: resdata.content
-      ...resdata
-    },
-    {
-      where: { id: resdata.id }
-    }
+    { ...resdata },
+    { where: { id: resdata.id } }
   );
   if (res[0]) {
     ctx.state.data = { message: '更新成功！' };
@@ -61,6 +66,10 @@ const articleUpdatePOST = async ctx => {
 // 删除文章
 const articleDELETE = async ctx => {
   const { id } = ctx.query;
+  const resone = await Models.Article.findOne({
+    where: { id }
+  });
+  await resone.setTags([]);
   const res = await Models.Article.destroy({
     where: { id }
   });
@@ -79,7 +88,14 @@ const articleDELETE = async ctx => {
 const articleFindGET = async ctx => {
   const { id } = ctx.query;
   const res = await Models.Article.findOne({
-    where: { id }
+    where: { id },
+    include: [
+      {
+        model: Models.Tag,
+        attributes: ['id', 'label'],
+        through: { attributes: [] }
+      }
+    ]
   });
   if (res) {
     ctx.state.data = {

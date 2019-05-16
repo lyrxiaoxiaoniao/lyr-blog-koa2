@@ -29,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Tag.belongsToMany(models.Article, {
       through: models.TagtoArticle,
-      foreignKey: 'tag_id'
+      foreignKey: 'tag_id',
+      constraints: false
     });
   };
   return Tag;

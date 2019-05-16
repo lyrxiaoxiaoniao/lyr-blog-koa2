@@ -38,6 +38,10 @@ const tagUpdatePOST = async ctx => {
 // 删除标签
 const tagDELETE = async ctx => {
   const { id } = ctx.query;
+  const resone = await Models.Tag.findOne({
+    where: { id }
+  });
+  await resone.setArticles([]);
   const res = await Models.Tag.destroy({
     where: { id }
   });
@@ -54,7 +58,9 @@ const tagDELETE = async ctx => {
 };
 // 标签列表
 const tagListGET = async ctx => {
-  const res = await Models.Tag.findAll();
+  const res = await Models.Tag.findAll({
+    order: [['updatedAt', 'DESC']]
+  });
   ctx.state.data = {
     data: res
   };
