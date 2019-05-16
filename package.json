@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --config nodemon.json app.js",
+    "start": "./node_modules/.bin/nodemon --config nodemon.json bin/www",
+    "prd": "pm2 start bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "debug": "^4.1.0"
+    "debug": "^4.1.0",
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -19,6 +21,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.5.1",
     "koa-mysql-session": "^0.0.2",
+    "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-session-minimal": "^3.0.4",
     "koa-static": "^5.0.0",
