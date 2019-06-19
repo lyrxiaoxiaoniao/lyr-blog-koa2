@@ -45,7 +45,7 @@
     {
         "development": {
             "username": "root",
-            "password": "12345",
+            "password": "xxxx",
             "database": "database_development",
             "host": "localhost",
             "dialect": "mysql",
@@ -64,7 +64,7 @@
         },
         "test": {
             "username": "root",
-            "password": "12345",
+            "password": "xxxx",
             "database": "database_test",
             "host": "localhost",
             "dialect": "mysql",
@@ -83,7 +83,7 @@
         },
         "production": {
             "username": "root",
-            "password": "12345",
+            "password": "xxxx",
             "database": "database_production",
             "host": "localhost",
             "dialect": "mysql",
@@ -160,7 +160,7 @@ mysql> show variables like '%char%';
 
 ```
 
-> 定义关系
+> 定义关系(1:1, 1:n, n:m)
 
 Role和User是一对多的关系，因此需要修改它们的模型定义。
 
